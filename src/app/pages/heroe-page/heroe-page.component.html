@@ -18,7 +18,7 @@
   </div>
 </p-toolbar>
 
-<div class="grid p-5">
+<div class="grid p-5 animate__animated animate__zoomInUp">
   <img class="sm:col-12 md:col-4 mb-2" [src]="heroe.images.md" alt="" />
   <div class="info-container pl-4 pr-4 sm:col-12 md:col-8">
     <h3>Biografía:</h3>
@@ -63,12 +63,18 @@
   [draggable]="false"
   [resizable]="false"
 >
-  <strong>Combate: </strong><p-progressBar [value]="heroe.powerstats.combat"></p-progressBar><br>
-  <strong>Poder: </strong><p-progressBar [value]="heroe.powerstats.power"></p-progressBar><br>
-  <strong>Fuerza: </strong><p-progressBar [value]="heroe.powerstats.strength"></p-progressBar><br>
-  <strong>Velocidad: </strong><p-progressBar [value]="heroe.powerstats.speed"></p-progressBar><br>
-  <strong>Inteligencia: </strong><p-progressBar [value]="heroe.powerstats.intelligence"></p-progressBar><br>
-  <strong>Durabilidad: </strong><p-progressBar [value]="heroe.powerstats.durability"></p-progressBar>
+  <strong>Combate: </strong
+  ><p-progressBar [value]="heroe.powerstats.combat"></p-progressBar><br />
+  <strong>Poder: </strong
+  ><p-progressBar [value]="heroe.powerstats.power"></p-progressBar><br />
+  <strong>Fuerza: </strong
+  ><p-progressBar [value]="heroe.powerstats.strength"></p-progressBar><br />
+  <strong>Velocidad: </strong
+  ><p-progressBar [value]="heroe.powerstats.speed"></p-progressBar><br />
+  <strong>Inteligencia: </strong
+  ><p-progressBar [value]="heroe.powerstats.intelligence"></p-progressBar><br />
+  <strong>Durabilidad: </strong
+  ><p-progressBar [value]="heroe.powerstats.durability"></p-progressBar>
   <ng-template pTemplate="footer">
     <p-button
       icon="pi pi-check"

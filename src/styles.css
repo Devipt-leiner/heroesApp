@@ -6,3 +6,19 @@ body {
   margin: 0;
   overflow-x: hidden !important;
 }
+
+.p-card-header img {
+  border-radius: .5rem;
+}
+
+.p-card {
+  background-color: var(--surface-hover) !important;
+  color: var(--primary-color) !important;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.p-card:hover {
+  background-color: var(--surface-border) !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+}

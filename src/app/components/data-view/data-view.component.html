@@ -25,13 +25,13 @@
 
     <ng-template let-heroe pTemplate="listItem">
       <div class="col-12 p-2">
-        <div class="flex">
+        <div class="flex flex-wrap">
           <img
             [src]="heroe.images.sm"
             [alt]="heroe.name"
-            class="border-round"
+            class="border-round animate__animated animate__fadeInUp"
           />
-          <div class="flex flex-column gap-2 pl-4">
+          <div class="flex flex-column gap-2 sm:pl-2 md:pl-4 animate__animated animate__fadeInUp">
             <h2>{{ heroe.name }}</h2>
             <span><strong>Primera aparición: </strong>{{ heroe.biography.firstAppearance }}</span>
             <span><strong>Editor: </strong>{{ heroe.biography.publisher }}</span>
@@ -48,12 +48,15 @@
     </ng-template>
 
     <ng-template let-heroe pTemplate="gridItem">
-      <div class="grid justify-content-center align-items-center sm:col-12 md:col-6 lg:col-3">
-          <app-card
+      <div class="flex flex-wrap p-3 justify-content-center align-items-center">
+          <app-card class="animate__animated animate__fadeInUp"
             [heroeName]="heroe.name"
-            [aliasName]="heroe.biography.aliases[0]"
-            [heroeImage]="heroe.images.sm"
-            [xsImage]="heroe.images.xs"
+            [publisher]="heroe.biography.publisher"
+            [heroeImage]="heroe.images.lg"
+            [gender]="heroe.appearance.gender"
+            [height]="heroe.appearance.height"
+            [weight]="heroe.appearance.weight"
+            [hairColor]="heroe.appearance.hairColor"
             (click)="viewHeroe(heroe)"
           ></app-card>
       </div>

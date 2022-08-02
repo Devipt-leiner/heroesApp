@@ -1,5 +1,8 @@
 .info-container {
   border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  background-color: white;
+  box-shadow: 5px 10px 50px #000000;
+  border-radius: 35px;
+  backdrop-filter: blur(3px);
+  background-color: var(--surface-card);
+  color: var(--text-color);
 }
