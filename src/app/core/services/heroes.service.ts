@@ -11,8 +11,8 @@ export class HeroesService {
 
   constructor(private http: HttpClient) {}
 
-  getAllHeroes(): Observable<Response> {
-    const URL = `${this.URL}/api/heroes`;
+  getAllHeroes(size: number): Observable<Response> {
+    const URL = `${this.URL}/api/heroes?size=${size}`;
     return this.http.get<Response>(URL);
   }
 }

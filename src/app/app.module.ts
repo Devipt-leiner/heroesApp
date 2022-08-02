@@ -13,14 +13,19 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DataViewComponent } from './components/data-view/data-view.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
+import { HeroePageComponent } from './pages/heroe-page/heroe-page.component';
+import { PageService } from './core/services/page.service';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
+    HeroePageComponent,
     HeaderComponent,
     DataViewComponent,
-    CardComponent
+    CardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import { CardComponent } from './components/card/card.component';
     PrimeNgModule,
   ],
   providers: [
-    HeroesService
+    HeroesService,
+    PageService
   ],
   bootstrap: [AppComponent]
 })

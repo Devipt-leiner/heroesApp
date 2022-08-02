@@ -1,3 +1,6 @@
 <app-header></app-header>
 <br><br><br>
-<app-home-page></app-home-page>
+<div [ngSwitch]="pageOption">
+  <app-home-page *ngSwitchCase="0"></app-home-page>
+  <app-heroe-page *ngSwitchCase="1" [heroe]="heroe"></app-heroe-page>
+</div>

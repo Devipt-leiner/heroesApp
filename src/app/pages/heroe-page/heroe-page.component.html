@@ -1,0 +1,80 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <p-button
+      class="mr-3"
+      (onClick)="back()"
+      label="Volver"
+      icon="pi pi-arrow-left"
+    ></p-button>
+    <h2>{{ heroe.name }}</h2>
+  </div>
+
+  <div class="p-toolbar-group-right">
+    <p-button
+      icon="pi pi-list"
+      (onClick)="viewStats()"
+      label="Ver estadísticas"
+    ></p-button>
+  </div>
+</p-toolbar>
+
+<div class="grid p-5">
+  <img class="sm:col-12 md:col-4 mb-2" [src]="heroe.images.md" alt="" />
+  <div class="info-container pl-4 pr-4 sm:col-12 md:col-8">
+    <h3>Biografía:</h3>
+    <ul>
+      <li>
+        <strong>Lugar de nacimiento: </strong>{{ heroe.biography.placeOfBirth }}
+      </li>
+      <li>
+        <strong>Primera aparición: </strong
+        >{{ heroe.biography.firstAppearance }}
+      </li>
+      <li><strong>Alias: </strong>{{ heroe.biography.aliases }}</li>
+      <li><strong>Nombre completo: </strong>{{ heroe.biography.fullName }}</li>
+    </ul>
+    <hr />
+    <h3>Trabajo:</h3>
+    <ul>
+      <li><strong>Ocupación: </strong>{{ heroe.work.occupation }}</li>
+      <li><strong>Base: </strong>{{ heroe.work.base }}</li>
+    </ul>
+    <hr />
+    <h3>Apariencia:</h3>
+    <ul>
+      <li><strong>Peso: </strong>{{ heroe.appearance.weight }}</li>
+      <li>
+        <strong>Color de cabello: </strong>{{ heroe.appearance.hairColor }}
+      </li>
+      <li><strong>Género: </strong>{{ heroe.appearance.gender }}</li>
+      <li><strong>Raza: </strong>{{ heroe.appearance.race }}</li>
+      <li><strong>Color de ojos: </strong>{{ heroe.appearance.eyeColor }}</li>
+      <li><strong>Altura: </strong>{{ heroe.appearance.height }}</li>
+    </ul>
+  </div>
+</div>
+
+<p-dialog
+  header="Estadísticas de {{ heroe.name }}"
+  [(visible)]="displayPosition"
+  [position]="'top-right'"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <strong>Combate: </strong><p-progressBar [value]="heroe.powerstats.combat"></p-progressBar><br>
+  <strong>Poder: </strong><p-progressBar [value]="heroe.powerstats.power"></p-progressBar><br>
+  <strong>Fuerza: </strong><p-progressBar [value]="heroe.powerstats.strength"></p-progressBar><br>
+  <strong>Velocidad: </strong><p-progressBar [value]="heroe.powerstats.speed"></p-progressBar><br>
+  <strong>Inteligencia: </strong><p-progressBar [value]="heroe.powerstats.intelligence"></p-progressBar><br>
+  <strong>Durabilidad: </strong><p-progressBar [value]="heroe.powerstats.durability"></p-progressBar>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="displayPosition = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>
