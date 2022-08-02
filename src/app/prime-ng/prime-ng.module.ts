@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from 'primeng/button';
 import { DataViewModule } from 'primeng/dataview';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -13,7 +14,8 @@ import { DataViewModule } from 'primeng/dataview';
   ],
   exports: [
     ButtonModule,
-    DataViewModule
+    DataViewModule,
+    InputTextModule
   ]
 })
 export class PrimeNgModule { }

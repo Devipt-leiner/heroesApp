@@ -1,52 +1,61 @@
 <div class="card">
-  <p-dataView #dv [paginator]="true" [rows]="9" filterBy="name"
-        layout="grid">
-      <ng-template pTemplate="header">
-          <div class="flex flex-column md:flex-row md:justify-content-between">
-              <span class="p-input-icon-left mb-2 md:mb-0">
-                  <i class="pi pi-search"></i>
-              </span>
-              <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+  <p-dataView
+    #dv
+    [value]="heroes"
+    [paginator]="true"
+    [rows]="10"
+    filterBy="name"
+    layout="grid"
+  >
+    <ng-template pTemplate="header">
+      <div class="flex flex-column md:flex-row md:justify-content-between">
+        <span class="p-input-icon-left mb-2 md:mb-0">
+          <i class="pi pi-search"></i>
+          <input
+            type="search"
+            pInputText
+            placeholder="Search by Name"
+            (input)="dv.filter($any($event.target).value)"
+          />
+        </span>
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+      </div>
+    </ng-template>
+
+    <ng-template let-heroe pTemplate="listItem">
+      <div class="col-12 p-2">
+        <div class="flex">
+          <img
+            [src]="heroe.images.sm"
+            [alt]="heroe.name"
+            class="border-round"
+          />
+          <div class="flex flex-column gap-2 pl-4">
+            <h2>{{ heroe.name }}</h2>
+            <span><strong>Primera aparición: </strong>{{ heroe.biography.firstAppearance }}</span>
+            <span><strong>Editor: </strong>{{ heroe.biography.publisher }}</span>
+            <span><strong>Alter ego: </strong>{{ heroe.biography.alterEgos }}</span>
+            <br>
+            <p-button
+              icon="pi pi-plus-circle"
+              label="Más información"
+            ></p-button>
           </div>
-      </ng-template>
-      <ng-template let-product pTemplate="listItem">
-          <div class="col-12">
-              <div class="product-list-item">
-                  <img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name"/>
-                  <div class="product-list-detail">
-                      <div class="product-name">{{product.name}}</div>
-                      <div class="product-description">{{product.description}}</div>
-                      <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{product.category}}</span>
-                  </div>
-                  <div class="product-list-action">
-                      <span class="product-price">${{product.price}}</span>
-                      <p-button icon="pi pi-shopping-cart" label="Add to Cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
-                      <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
-                  </div>
-              </div>
-          </div>
-      </ng-template>
-      <ng-template let-product pTemplate="gridItem">
-          <div class="col-12 md:col-4">
-              <div class="product-grid-item card">
-                  <div class="product-grid-item-top">
-                      <div>
-                          <i class="pi pi-tag product-category-icon"></i>
-                          <span class="product-category">{{product.category}}</span>
-                      </div>
-                      <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
-                  </div>
-                  <div class="product-grid-item-content">
-                      <img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name"/>
-                      <div class="product-name">{{product.name}}</div>
-                      <div class="product-description">{{product.description}}</div>
-                  </div>
-                  <div class="product-grid-item-bottom">
-                      <span class="product-price">${{product.price}}</span>
-                      <p-button icon="pi pi-shopping-cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
-                  </div>
-              </div>
-          </div>
-      </ng-template>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template let-heroe pTemplate="gridItem">
+      <div class="grid justify-content-center col-12 md:col-4">
+        <div class="flex flex-wrap gap-4 justify-content-center">
+          <app-card
+            [heroeName]="heroe.name"
+            [aliasName]="heroe.biography.aliases[0]"
+            [heroeImage]="heroe.images.sm"
+            [xsImage]="heroe.images.xs"
+          ></app-card>
+        </div>
+      </div>
+    </ng-template>
   </p-dataView>
 </div>

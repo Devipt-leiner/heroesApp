@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Item, Response } from 'src/app/core/interfaces/heroes.interface';
+import { HeroesService } from 'src/app/core/services/heroes.service';
 
 @Component({
   selector: 'app-data-view',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataViewComponent implements OnInit {
 
-  constructor() { }
+  heroes: Item[] = [];
+
+  constructor(private heroesService: HeroesService) { }
 
   ngOnInit(): void {
+    this.heroesService.getAllHeroes().subscribe((response: Response) => {
+      this.heroes = response.items;
+    });
   }
 
 }
